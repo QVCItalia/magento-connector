@@ -370,7 +370,7 @@ public interface MagentoCatalogClient<ExceptionType extends Exception>
     CatalogProductAttributeEntity getProductAttribute(@NotNull String attributeId) throws ExceptionType;
     
     /**
-     * Allows you to add a new option for attributes with selectable fields. See product-attribute-addOption
+     * Allows you to add a new option for attributes with selectable fields. See catalog-product-attribute-addOption
      * SOAP method
      * 
      *
@@ -380,6 +380,17 @@ public interface MagentoCatalogClient<ExceptionType extends Exception>
      */
     boolean addOptionProductAttribute(@NotNull String attributeId,
     								@NotNull CatalogProductAttributeOptionEntityToAdd option) throws ExceptionType;
+    
+    /**
+     * Allows you to remove the option for an attribute. See catalog-product-attribute-removeOption
+     * SOAP method
+     * 
+     *
+     * @param attributeId Attribute code or ID 
+     * @param optionId Option ID
+     * @return True if the option is removed 
+     */
+    boolean removeOptionProductAttribute(@NotNull String attributeId, String optionId) throws ExceptionType;
 
     /**
      * Answers the product attribute options. See catalog-product-attribute-options

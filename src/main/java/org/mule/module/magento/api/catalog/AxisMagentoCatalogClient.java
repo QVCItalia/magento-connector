@@ -495,6 +495,13 @@ public class AxisMagentoCatalogClient extends AbstractMagentoClient
     	Validate.notNull(option);
     	return getPort().catalogProductAttributeAddOption(getSessionId(), attributeId, option);
 	}
+	
+	public boolean removeOptionProductAttribute(@NotNull String attributeId, @NotNull String optionId) throws RemoteException 
+	{
+    	Validate.notNull(attributeId);
+    	Validate.notNull(optionId);
+    	return getPort().catalogProductAttributeRemoveOption(getSessionId(), attributeId, optionId);
+	}
 
     @NotNull
     public List<CatalogAttributeOptionEntity> listProductAttributeOptions(@NotNull String attributeId, String storeView)

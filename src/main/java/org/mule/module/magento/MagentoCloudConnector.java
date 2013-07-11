@@ -951,7 +951,7 @@ public class MagentoCloudConnector {
     }
     
     /**
-     * Allows you to add a new option for attributes with selectable fields. See product-attribute-addOption
+     * Allows you to add a new option for attributes with selectable fields. See catalog-product-attribute-addOption
      * SOAP method
      * <p/>
      * {@sample.xml ../../../doc/magento-connector.xml.sample magento:addOptionProductAttribute}
@@ -964,6 +964,22 @@ public class MagentoCloudConnector {
     @Processor
     public boolean addOptionProductAttribute(String attributeId, @Optional @Default("#[payload]") CatalogProductAttributeOptionEntityToAdd option) {
         return catalogClient.addOptionProductAttribute(attributeId, option);
+    }
+    
+    /**
+     * Allows you to remove the option for an attribute. See catalog-product-attribute-removeOption
+     * SOAP method
+     * <p/>
+     * {@sample.xml ../../../doc/magento-connector.xml.sample magento:removeOptionProductAttribute}
+     *
+     *
+     * @param attributeId Attribute code or ID
+     * @param optionId Option ID
+     * @return True if the option is removed
+     */
+    @Processor
+    public boolean removeOptionProductAttribute(String attributeId, @Optional @Default("#[payload]") String optionId) {
+        return catalogClient.removeOptionProductAttribute(attributeId, optionId);
     }
 
     /**

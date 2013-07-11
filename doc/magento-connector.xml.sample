@@ -252,6 +252,10 @@
         <magento:add-option-product-attribute attributeId="#[map-payload:attributeId]" />
 <!-- END_INCLUDE(magento:addOptionProductAttribute) -->
 
+<!-- BEGIN_INCLUDE(magento:removeOptionProductAttribute) -->
+        <magento:remove-option-product-attribute attributeId="#[map-payload:attributeId]" />
+<!-- END_INCLUDE(magento:removeOptionProductAttribute) -->
+
 <!-- BEGIN_INCLUDE(magento:listProductAttributeSets) -->
         <magento:list-product-attribute-sets />
 <!-- END_INCLUDE(magento:listProductAttributeSets) -->
