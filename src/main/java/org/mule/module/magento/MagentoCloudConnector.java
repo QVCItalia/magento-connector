@@ -934,6 +934,21 @@ public class MagentoCloudConnector {
     public List<CatalogAttributeEntity> listProductAttributes(int setId) {
         return catalogClient.listProductAttributes(setId);
     }
+    
+    /**
+     * Retrieves product attribute info. See catalog-product-attribute-info SOAP
+     * methods
+     * <p/>
+     * {@sample.xml ../../../doc/magento-connector.xml.sample magento:infoProductAttribute}
+     *
+     *
+     * @param attributeId Attribute code or ID
+     * @return the product attribute
+     */
+    @Processor
+    public CatalogProductAttributeEntity getProductAttribute(String attributeId) {
+        return catalogClient.getProductAttribute(attributeId);
+    }
 
     /**
      * Retrieves product attribute sets. See catalog-product-attribute-set-list SOAP

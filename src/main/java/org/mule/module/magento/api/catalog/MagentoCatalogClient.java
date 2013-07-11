@@ -358,6 +358,16 @@ public interface MagentoCatalogClient<ExceptionType extends Exception>
      * @return the list of product attributes
      */
     List<CatalogAttributeEntity> listProductAttributes(int setId) throws ExceptionType;
+    
+    /**
+     * Answers product attributes. See catalog-product-attribute-info
+     * SOAP method
+     * 
+     *
+     * @param attributeId Attribute code or ID 
+     * @return the product attribute
+     */
+    CatalogProductAttributeEntity getProductAttribute(@NotNull String attributeId) throws ExceptionType;
 
     /**
      * Answers the product attribute options. See catalog-product-attribute-options
