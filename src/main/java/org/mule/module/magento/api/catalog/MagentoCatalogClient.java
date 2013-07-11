@@ -368,6 +368,18 @@ public interface MagentoCatalogClient<ExceptionType extends Exception>
      * @return the product attribute
      */
     CatalogProductAttributeEntity getProductAttribute(@NotNull String attributeId) throws ExceptionType;
+    
+    /**
+     * Allows you to add a new option for attributes with selectable fields. See product-attribute-addOption
+     * SOAP method
+     * 
+     *
+     * @param attributeId Attribute code or ID 
+     * @param option Option data
+     * @return True on success
+     */
+    boolean addOptionProductAttribute(@NotNull String attributeId,
+    								@NotNull CatalogProductAttributeOptionEntityToAdd option) throws ExceptionType;
 
     /**
      * Answers the product attribute options. See catalog-product-attribute-options

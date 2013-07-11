@@ -949,6 +949,22 @@ public class MagentoCloudConnector {
     public CatalogProductAttributeEntity getProductAttribute(String attributeId) {
         return catalogClient.getProductAttribute(attributeId);
     }
+    
+    /**
+     * Allows you to add a new option for attributes with selectable fields. See product-attribute-addOption
+     * SOAP method
+     * <p/>
+     * {@sample.xml ../../../doc/magento-connector.xml.sample magento:addOptionProductAttribute}
+     *
+     *
+     * @param attributeId Attribute code or ID
+     * @param option Option data
+     * @return True on success
+     */
+    @Processor
+    public boolean addOptionProductAttribute(String attributeId, @Optional @Default("#[payload]") CatalogProductAttributeOptionEntityToAdd option) {
+        return catalogClient.addOptionProductAttribute(attributeId, option);
+    }
 
     /**
      * Retrieves product attribute sets. See catalog-product-attribute-set-list SOAP

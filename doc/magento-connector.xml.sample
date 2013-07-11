@@ -248,6 +248,10 @@
         <magento:get-product-attribute attributeId="#[map-payload:attributeId]" />
 <!-- END_INCLUDE(magento:infoProductAttribute) -->
 
+<!-- BEGIN_INCLUDE(magento:addOptionProductAttribute) -->
+        <magento:add-option-product-attribute attributeId="#[map-payload:attributeId]" />
+<!-- END_INCLUDE(magento:addOptionProductAttribute) -->
+
 <!-- BEGIN_INCLUDE(magento:listProductAttributeSets) -->
         <magento:list-product-attribute-sets />
 <!-- END_INCLUDE(magento:listProductAttributeSets) -->
