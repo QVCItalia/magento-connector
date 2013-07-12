@@ -483,6 +483,12 @@ public class AxisMagentoCatalogClient extends AbstractMagentoClient
         return Arrays.asList(getPort().catalogProductAttributeList(getSessionId(), setId));
     }
     
+    public int createProductAttribute(@NotNull CatalogProductAttributeEntityToCreate data) throws RemoteException 
+	{
+    	Validate.notNull(data);
+    	return getPort().catalogProductAttributeCreate(getSessionId(), data);
+	}
+    
 	public CatalogProductAttributeEntity getProductAttribute(@NotNull String attributeId) throws RemoteException 
 	{
     	Validate.notNull(attributeId);

@@ -244,6 +244,10 @@
         <magento:list-product-attributes setId="#[map-payload:setId]" />
 <!-- END_INCLUDE(magento:listProductAttributes) -->
 
+<!-- BEGIN_INCLUDE(magento:createProductAttribute) -->
+        <magento:create-product-attribute />
+<!-- END_INCLUDE(magento:createProductAttribute) -->
+
 <!-- BEGIN_INCLUDE(magento:infoProductAttribute) -->
         <magento:get-product-attribute attributeId="#[map-payload:attributeId]" />
 <!-- END_INCLUDE(magento:infoProductAttribute) -->

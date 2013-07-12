@@ -936,6 +936,21 @@ public class MagentoCloudConnector {
     }
     
     /**
+     * Allows you to create a new product attribute. See catalog-product-attribute-create
+     * SOAP method
+     * <p/>
+     * {@sample.xml ../../../doc/magento-connector.xml.sample magento:createProductAttribute}
+     * 
+     *
+     * @param catalogProductAttributeEntity Attribute data
+     * @return ID of the created attribute 
+     */
+    @Processor
+    public int createProductAttribute(@Optional @Default("#[payload]") CatalogProductAttributeEntityToCreate catalogProductAttributeEntity) {
+    	return catalogClient.createProductAttribute(catalogProductAttributeEntity);
+    }
+    
+    /**
      * Retrieves product attribute info. See catalog-product-attribute-info SOAP
      * methods
      * <p/>

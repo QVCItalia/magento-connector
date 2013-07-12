@@ -360,6 +360,16 @@ public interface MagentoCatalogClient<ExceptionType extends Exception>
     List<CatalogAttributeEntity> listProductAttributes(int setId) throws ExceptionType;
     
     /**
+     * Allows you to create a new product attribute. See catalog-product-attribute-create
+     * SOAP method
+     * 
+     *
+     * @param data Attribute data
+     * @return ID of the created attribute 
+     */
+    int createProductAttribute(@NotNull CatalogProductAttributeEntityToCreate data) throws ExceptionType;
+    
+    /**
      * Answers product attributes. See catalog-product-attribute-info
      * SOAP method
      * 
