@@ -951,6 +951,21 @@ public class MagentoCloudConnector {
     }
     
     /**
+     * Allows you to remove the required attribute from a product. See catalog-product-attribute-remove
+     * SOAP method
+     * <p/>
+     * {@sample.xml ../../../doc/magento-connector.xml.sample magento:removeProductAttribute}
+     * 
+     *
+     * @param attributeId Attribute code or ID 
+     * @return True if the attribute is removed 
+     */
+    @Processor
+    public boolean removeProductAttribute(@Optional @Default("#[payload]") String attributeId) {
+    	return catalogClient.removeProductAttribute(attributeId);
+    }
+    
+    /**
      * Retrieves product attribute info. See catalog-product-attribute-info SOAP
      * methods
      * <p/>

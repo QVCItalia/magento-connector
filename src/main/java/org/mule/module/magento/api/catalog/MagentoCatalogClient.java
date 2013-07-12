@@ -370,6 +370,16 @@ public interface MagentoCatalogClient<ExceptionType extends Exception>
     int createProductAttribute(@NotNull CatalogProductAttributeEntityToCreate data) throws ExceptionType;
     
     /**
+     * Allows you to remove the required attribute from a product. See catalog-product-attribute-remove
+     * SOAP method
+     * 
+     *
+     * @param attributeId Attribute code or ID 
+     * @return True if the attribute is removed 
+     */
+    boolean removeProductAttribute(@NotNull String attributeId) throws ExceptionType;
+    
+    /**
      * Answers product attributes. See catalog-product-attribute-info
      * SOAP method
      * 

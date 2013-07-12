@@ -248,6 +248,10 @@
         <magento:create-product-attribute />
 <!-- END_INCLUDE(magento:createProductAttribute) -->
 
+<!-- BEGIN_INCLUDE(magento:removeProductAttribute) -->
+        <magento:remove-product-attribute attributeId="#[map-payload:attributeId]"/>
+<!-- END_INCLUDE(magento:removeProductAttribute) -->
+
 <!-- BEGIN_INCLUDE(magento:infoProductAttribute) -->
         <magento:get-product-attribute attributeId="#[map-payload:attributeId]" />
 <!-- END_INCLUDE(magento:infoProductAttribute) -->
