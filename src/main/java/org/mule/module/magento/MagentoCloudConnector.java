@@ -934,6 +934,83 @@ public class MagentoCloudConnector {
     public List<CatalogAttributeEntity> listProductAttributes(int setId) {
         return catalogClient.listProductAttributes(setId);
     }
+    
+    /**
+     * Allows you to create a new product attribute. See catalog-product-attribute-create
+     * SOAP method
+     * <p/>
+     * {@sample.xml ../../../doc/magento-connector.xml.sample magento:createProductAttribute}
+     * 
+     *
+     * @param catalogProductAttributeEntity Attribute data
+     * @return ID of the created attribute 
+     */
+    @Processor
+    public int createProductAttribute(@Optional @Default("#[payload]") CatalogProductAttributeEntityToCreate catalogProductAttributeEntity) {
+    	return catalogClient.createProductAttribute(catalogProductAttributeEntity);
+    }
+    
+    /**
+     * Allows you to remove the required attribute from a product. See catalog-product-attribute-remove
+     * SOAP method
+     * <p/>
+     * {@sample.xml ../../../doc/magento-connector.xml.sample magento:removeProductAttribute}
+     * 
+     *
+     * @param attributeId Attribute code or ID 
+     * @return True if the attribute is removed 
+     */
+    @Processor
+    public boolean removeProductAttribute(@Optional @Default("#[payload]") String attributeId) {
+    	return catalogClient.removeProductAttribute(attributeId);
+    }
+    
+    /**
+     * Retrieves product attribute info. See catalog-product-attribute-info SOAP
+     * methods
+     * <p/>
+     * {@sample.xml ../../../doc/magento-connector.xml.sample magento:infoProductAttribute}
+     *
+     *
+     * @param attributeId Attribute code or ID
+     * @return the product attribute
+     */
+    @Processor
+    public CatalogProductAttributeEntity getProductAttribute(String attributeId) {
+        return catalogClient.getProductAttribute(attributeId);
+    }
+    
+    /**
+     * Allows you to add a new option for attributes with selectable fields. See catalog-product-attribute-addOption
+     * SOAP method
+     * <p/>
+     * {@sample.xml ../../../doc/magento-connector.xml.sample magento:addOptionProductAttribute}
+     *
+     *
+     * @param attributeId Attribute code or ID
+     * @param option Option data
+     * @return True on success
+     */
+    @Processor
+    public boolean addOptionProductAttribute(String attributeId, @Optional @Default("#[payload]") CatalogProductAttributeOptionEntityToAdd option) {
+        return catalogClient.addOptionProductAttribute(attributeId, option);
+    }
+    
+    /**
+     * Allows you to remove the option for an attribute. See catalog-product-attribute-removeOption
+     * SOAP method
+     * <p/>
+     * {@sample.xml ../../../doc/magento-connector.xml.sample magento:removeOptionProductAttribute}
+     *
+     *
+     * @param attributeId Attribute code or ID
+     * @param optionId Option ID
+     * @return True if the option is removed
+     */
+    @Processor
+    public boolean removeOptionProductAttribute(String attributeId, @Optional @Default("#[payload]") String optionId) {
+        return catalogClient.removeOptionProductAttribute(attributeId, optionId);
+    }
 
     /**
      * Retrieves product attribute sets. See catalog-product-attribute-set-list SOAP

@@ -358,6 +358,59 @@ public interface MagentoCatalogClient<ExceptionType extends Exception>
      * @return the list of product attributes
      */
     List<CatalogAttributeEntity> listProductAttributes(int setId) throws ExceptionType;
+    
+    /**
+     * Allows you to create a new product attribute. See catalog-product-attribute-create
+     * SOAP method
+     * 
+     *
+     * @param data Attribute data
+     * @return ID of the created attribute 
+     */
+    int createProductAttribute(@NotNull CatalogProductAttributeEntityToCreate data) throws ExceptionType;
+    
+    /**
+     * Allows you to remove the required attribute from a product. See catalog-product-attribute-remove
+     * SOAP method
+     * 
+     *
+     * @param attributeId Attribute code or ID 
+     * @return True if the attribute is removed 
+     */
+    boolean removeProductAttribute(@NotNull String attributeId) throws ExceptionType;
+    
+    /**
+     * Answers product attributes. See catalog-product-attribute-info
+     * SOAP method
+     * 
+     *
+     * @param attributeId Attribute code or ID 
+     * @return the product attribute
+     */
+    CatalogProductAttributeEntity getProductAttribute(@NotNull String attributeId) throws ExceptionType;
+    
+    /**
+     * Allows you to add a new option for attributes with selectable fields. See catalog-product-attribute-addOption
+     * SOAP method
+     * 
+     *
+     * @param attributeId Attribute code or ID 
+     * @param option Option data
+     * @return True on success
+     */
+    boolean addOptionProductAttribute(@NotNull String attributeId,
+    								@NotNull CatalogProductAttributeOptionEntityToAdd option) throws ExceptionType;
+    
+    /**
+     * Allows you to remove the option for an attribute. See catalog-product-attribute-removeOption
+     * SOAP method
+     * 
+     *
+     * @param attributeId Attribute code or ID 
+     * @param optionId Option ID
+     * @return True if the option is removed 
+     */
+    boolean removeOptionProductAttribute(@NotNull String attributeId, String optionId) throws ExceptionType;
 
     /**
      * Answers the product attribute options. See catalog-product-attribute-options

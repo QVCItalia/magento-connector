@@ -482,6 +482,38 @@ public class AxisMagentoCatalogClient extends AbstractMagentoClient
     {
         return Arrays.asList(getPort().catalogProductAttributeList(getSessionId(), setId));
     }
+    
+    public int createProductAttribute(@NotNull CatalogProductAttributeEntityToCreate data) throws RemoteException 
+	{
+    	Validate.notNull(data);
+    	return getPort().catalogProductAttributeCreate(getSessionId(), data);
+	}
+    
+    public boolean removeProductAttribute(@NotNull String attributeId) throws RemoteException 
+	{
+    	Validate.notNull(attributeId);
+    	return getPort().catalogProductAttributeRemove(getSessionId(), attributeId);
+	}
+    
+	public CatalogProductAttributeEntity getProductAttribute(@NotNull String attributeId) throws RemoteException 
+	{
+    	Validate.notNull(attributeId);
+    	return getPort().catalogProductAttributeInfo(getSessionId(), attributeId);
+	}
+	
+	public boolean addOptionProductAttribute(@NotNull String attributeId, @NotNull CatalogProductAttributeOptionEntityToAdd option) throws RemoteException 
+	{
+    	Validate.notNull(attributeId);
+    	Validate.notNull(option);
+    	return getPort().catalogProductAttributeAddOption(getSessionId(), attributeId, option);
+	}
+	
+	public boolean removeOptionProductAttribute(@NotNull String attributeId, @NotNull String optionId) throws RemoteException 
+	{
+    	Validate.notNull(attributeId);
+    	Validate.notNull(optionId);
+    	return getPort().catalogProductAttributeRemoveOption(getSessionId(), attributeId, optionId);
+	}
 
     @NotNull
     public List<CatalogAttributeOptionEntity> listProductAttributeOptions(@NotNull String attributeId, String storeView)

@@ -244,6 +244,26 @@
         <magento:list-product-attributes setId="#[map-payload:setId]" />
 <!-- END_INCLUDE(magento:listProductAttributes) -->
 
+<!-- BEGIN_INCLUDE(magento:createProductAttribute) -->
+        <magento:create-product-attribute />
+<!-- END_INCLUDE(magento:createProductAttribute) -->
+
+<!-- BEGIN_INCLUDE(magento:removeProductAttribute) -->
+        <magento:remove-product-attribute attributeId="#[map-payload:attributeId]"/>
+<!-- END_INCLUDE(magento:removeProductAttribute) -->
+
+<!-- BEGIN_INCLUDE(magento:infoProductAttribute) -->
+        <magento:get-product-attribute attributeId="#[map-payload:attributeId]" />
+<!-- END_INCLUDE(magento:infoProductAttribute) -->
+
+<!-- BEGIN_INCLUDE(magento:addOptionProductAttribute) -->
+        <magento:add-option-product-attribute attributeId="#[map-payload:attributeId]" />
+<!-- END_INCLUDE(magento:addOptionProductAttribute) -->
+
+<!-- BEGIN_INCLUDE(magento:removeOptionProductAttribute) -->
+        <magento:remove-option-product-attribute attributeId="#[map-payload:attributeId]" />
+<!-- END_INCLUDE(magento:removeOptionProductAttribute) -->
+
 <!-- BEGIN_INCLUDE(magento:listProductAttributeSets) -->
         <magento:list-product-attribute-sets />
 <!-- END_INCLUDE(magento:listProductAttributeSets) -->
